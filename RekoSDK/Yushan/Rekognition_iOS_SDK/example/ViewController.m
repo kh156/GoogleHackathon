@@ -39,7 +39,7 @@
 
 - (IBAction)btnSelectImageClicked:(id)sender
 {
-	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera", @"Image Gallary", nil];
+	UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select Image from..." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"PicasaWeb", @"Dropbox", nil];
 	actionSheet.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
 	actionSheet.alpha = 0.80;
 	actionSheet.tag = 1;
@@ -90,21 +90,6 @@
             break;
     }
     
-}
-
--(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary*)info
-{
-    
-    imageView.image  = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    NSLog(@"%d", imageView.image.imageOrientation);
-    NSLog(@"%f %f", imageView.image.size.width, imageView.image.size.height);
-    
-	[picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-	
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 
