@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08151529181B989C00A01FCC /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 08151527181B989C00A01FCC /* DBChooser.bundle */; };
-		0815152A181B989C00A01FCC /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08151528181B989C00A01FCC /* DBChooser.framework */; };
 		08151536181BA8A200A01FCC /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815152D181BA8A200A01FCC /* Base64.m */; };
 		08151537181BA8A200A01FCC /* FaceThumbnailCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0815152F181BA8A200A01FCC /* FaceThumbnailCropper.m */; };
 		08151538181BA8A200A01FCC /* NSDictionary+HTTPBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 08151531181BA8A200A01FCC /* NSDictionary+HTTPBody.m */; };
 		08151539181BA8A200A01FCC /* RekognitionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 08151533181BA8A200A01FCC /* RekognitionSDK.m */; };
 		0815153A181BA8A200A01FCC /* UIImageResize+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08151535181BA8A200A01FCC /* UIImageResize+Rotate.m */; };
+		0815153E181BACDA00A01FCC /* DBChooser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0815153C181BACDA00A01FCC /* DBChooser.bundle */; };
+		0815153F181BACDA00A01FCC /* DBChooser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0815153D181BACDA00A01FCC /* DBChooser.framework */; };
 		089DA0E617FA4887006A5745 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 089DA0E517FA4887006A5745 /* CoreLocation.framework */; };
 		08D5E72B180691180019B6B4 /* StacheCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */; };
 		08D5E72F180692F50019B6B4 /* RekoSDK-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D5E72E180692F50019B6B4 /* RekoSDK-Info.plist */; };
@@ -84,8 +84,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		08151527181B989C00A01FCC /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
-		08151528181B989C00A01FCC /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		0815152C181BA8A200A01FCC /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		0815152D181BA8A200A01FCC /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		0815152E181BA8A200A01FCC /* FaceThumbnailCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceThumbnailCropper.h; sourceTree = "<group>"; };
@@ -96,6 +94,8 @@
 		08151533181BA8A200A01FCC /* RekognitionSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RekognitionSDK.m; sourceTree = "<group>"; };
 		08151534181BA8A200A01FCC /* UIImageResize+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageResize+Rotate.h"; sourceTree = "<group>"; };
 		08151535181BA8A200A01FCC /* UIImageResize+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageResize+Rotate.m"; sourceTree = "<group>"; };
+		0815153C181BACDA00A01FCC /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
+		0815153D181BACDA00A01FCC /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
 		089DA0E517FA4887006A5745 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		08D5E727180691180019B6B4 /* StacheCamAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StacheCamAppDelegate.h; sourceTree = "<group>"; };
 		08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacheCamAppDelegate.m; sourceTree = "<group>"; };
@@ -273,7 +273,7 @@
 				4B676CF417DEFBDA008D06BB /* libstdc++.dylib in Frameworks */,
 				4B676CF217DEFBB0008D06BB /* libz.1.1.3.dylib in Frameworks */,
 				4B676BBB17DE8EE5008D06BB /* libsqlite3.0.dylib in Frameworks */,
-				0815152A181B989C00A01FCC /* DBChooser.framework in Frameworks */,
+				0815153F181BACDA00A01FCC /* DBChooser.framework in Frameworks */,
 				4B676BB917DE8ECA008D06BB /* libz.dylib in Frameworks */,
 				4B676BB717DE8EBA008D06BB /* libz.1.2.5.dylib in Frameworks */,
 				4B676BB517DE8EA7008D06BB /* Accelerate.framework in Frameworks */,
@@ -390,11 +390,11 @@
 		1B867FE2139D4AD300AD6B47 /* RekoSDK */ = {
 			isa = PBXGroup;
 			children = (
+				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
+				0815153D181BACDA00A01FCC /* DBChooser.framework */,
 				08D5E727180691180019B6B4 /* StacheCamAppDelegate.h */,
 				08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */,
 				0815152B181BA8A200A01FCC /* curl */,
-				08151527181B989C00A01FCC /* DBChooser.bundle */,
-				08151528181B989C00A01FCC /* DBChooser.framework */,
 				A5719AD81694F17100DEB7EA /* opencv2 */,
 				A5719A9B1694F15D00DEB7EA /* gen-cocoa */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
@@ -734,7 +734,7 @@
 			files = (
 				1B867FE7139D4AD300AD6B47 /* InfoPlist.strings in Resources */,
 				08D5E72F180692F50019B6B4 /* RekoSDK-Info.plist in Resources */,
-				08151529181B989C00A01FCC /* DBChooser.bundle in Resources */,
+				0815153E181BACDA00A01FCC /* DBChooser.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -843,6 +843,7 @@
 					"$(SRCROOT)",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK/gen-cocoa",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK",
+					/Users/kuanghan/Desktop/GoogleHackathon/RekoSDK,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -879,6 +880,7 @@
 					"$(SRCROOT)",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK/gen-cocoa",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK",
+					/Users/kuanghan/Desktop/GoogleHackathon/RekoSDK,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
