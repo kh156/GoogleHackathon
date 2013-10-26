@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 @protocol DropboxImageLoaderDelegate <NSObject>
-- (void)finishedLoading:(NSArray *)images succeed:(BOOL)succeed contentChanged:(BOOL)change;
+@optional
+- (void)allImagesLoaded:(NSArray *)images succeed:(BOOL)succeed contentChanged:(BOOL)change;
+- (void)newImageLoaded:(UIImage *)image;
 @end
 
 

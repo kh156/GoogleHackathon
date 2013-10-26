@@ -29,7 +29,7 @@
     }
 }
 
-- (void)finishedLoading:(NSArray *)images succeed:(BOOL)succeed contentChanged:(BOOL)change {
+- (void)allImagesLoaded:(NSArray *)images succeed:(BOOL)succeed contentChanged:(BOOL)change {
     NSLog(@"here");
     NSLog(@"%@", images);
 }

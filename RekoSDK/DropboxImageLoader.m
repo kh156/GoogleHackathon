@@ -67,7 +67,7 @@ static DropboxImageLoader *_sharedLoader = nil;
 - (void)restClient:(DBRestClient*)client metadataUnchangedAtPath:(NSString*)path {
     NSLog(@"Files unchanged");
     if (self.delegate) {
-        [self.delegate finishedLoading:self.photos succeed:YES contentChanged:NO];
+        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:NO];
     }
 }
 
@@ -75,7 +75,7 @@ static DropboxImageLoader *_sharedLoader = nil;
 - (void)restClient:(DBRestClient*)client loadMetadataFailedWithError:(NSError*)error {
     NSLog(@"restClient:loadMetadataFailedWithError: %@", [error localizedDescription]);
     if (self.delegate) {
-        [self.delegate finishedLoading:nil succeed:NO contentChanged:NO];
+        [self.delegate allImagesLoaded:nil succeed:NO contentChanged:NO];
     }
 }
 
@@ -84,10 +84,12 @@ static DropboxImageLoader *_sharedLoader = nil;
     UIImage *thumbnail = [UIImage imageWithContentsOfFile:destPath];
     NSLog(@"thumbnail: %@", thumbnail);
     [self.photos addObject:thumbnail];
+    if (self.delegate) {
+        [self.delegate newImageLoaded:thumbnail];
+    }
     imagesToLoad --;
-        NSLog(@"%d", imagesToLoad);
     if (imagesToLoad == 0 && self.delegate) {
-        [self.delegate finishedLoading:self.photos succeed:YES contentChanged:YES];
+        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:YES];
     }
 }
 
@@ -96,7 +98,7 @@ static DropboxImageLoader *_sharedLoader = nil;
     NSLog(@"restClient:loadThumbnailFailedWithError: %@", [error localizedDescription]);
     imagesToLoad --;
     if (imagesToLoad == 0 && self.delegate) {
-        [self.delegate finishedLoading:self.photos succeed:YES contentChanged:YES];
+        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:YES];
     }
 }
 
