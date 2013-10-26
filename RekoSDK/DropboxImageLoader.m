@@ -35,7 +35,7 @@ static DropboxImageLoader *_sharedLoader = nil;
 
 - (void)loadImagesFromDropbox:(id<DropboxImageLoaderDelegate>)delegate {
     self.delegate = delegate;
-    NSString *dropboxPath = @"/_Orbeus_Family (1)/GoogleHackathon/";
+    NSString *dropboxPath = @"/_Orbeus_Family (1)/Google Hackathon/";
     [self.dropboxClient loadMetadata:dropboxPath withHash:self.photosHash];
 }
 
