@@ -14,7 +14,7 @@
 
 
 @interface DropboxImageLoader : NSObject
-@property (weak, nonatomic) id<DropboxImageLoaderDelegate> delegate;
+@property (strong, nonatomic) id<DropboxImageLoaderDelegate> delegate;
 @property (strong, nonatomic) NSMutableArray *photos;
 
 
