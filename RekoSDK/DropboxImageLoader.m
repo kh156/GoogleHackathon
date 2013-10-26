@@ -13,10 +13,11 @@
 
 @interface DropboxImageLoader() <DBRestClientDelegate> {
     int counter;
-    int imagesToLoad;
+    int imagesLoaded;
 }
 @property (strong, readonly) DBRestClient *dropboxClient;
 @property (strong, nonatomic) NSString *photosHash;
+@property (strong, nonatomic) NSMutableArray *photoPaths;
 @end
 
 
@@ -33,73 +34,81 @@ static DropboxImageLoader *_sharedLoader = nil;
 }
 
 
-- (void)loadImagesFromDropbox:(id<DropboxImageLoaderDelegate>)delegate {
+- (void)loadImageUrlsFromDropbox:(id<DropboxImageLoaderDelegate>)delegate {
     self.delegate = delegate;
-    NSString *dropboxPath = @"/_Orbeus_Family (1)/Google Hackathon/";
+    NSString *dropboxPath = @"/_Orbeus_Family (1)/GoogleHackathon/";
     [self.dropboxClient loadMetadata:dropboxPath withHash:self.photosHash];
+}
+
+
+- (void)loadThumbnailForIndex:(NSInteger)index {
+    [self.dropboxClient loadThumbnail:[self.photoPaths objectAtIndex:index] ofSize:@"m" intoPath:[self tempPhotoPath]];
 }
 
 
 #pragma mark DBRestClientDelegate methods
 
+- (void)restClient:(DBRestClient*)restClient loadedStreamableURL:(NSURL*)url forFile:(NSString*)path {
+    [self.photoUrls addObject:url];
+    [self.delegate newImageUrlLoaded:url index:imagesLoaded];
+    imagesLoaded ++;
+    if (imagesLoaded == [self.photoPaths count]) {
+        [self.delegate allImageUrlsLoaded:self.photoUrls succeed:YES contentChanged:YES];
+    }
+}
+
+
+- (void)restClient:(DBRestClient*)restClient loadStreamableURLFailedWithError:(NSError*)error {
+//    NSLog(@"Url failed: %@", error);
+    imagesLoaded ++;
+    if (imagesLoaded == [self.photoPaths count]) {
+        [self.delegate allImageUrlsLoaded:self.photoUrls succeed:YES contentChanged:YES];
+    }
+}
+
+
 - (void)restClient:(DBRestClient*)client loadedMetadata:(DBMetadata*)metadata {
     self.photosHash = metadata.hash;
     
     NSArray* validExtensions = [NSArray arrayWithObjects:@"jpg", @"jpeg", nil];
-    NSMutableArray* newPhotoPaths = [NSMutableArray new];
-    NSLog(@"metadata: %@", metadata.contents);
     
+    self.photoPaths = [NSMutableArray arrayWithCapacity:10];
     for (DBMetadata* child in metadata.contents) {
         NSString* extension = [[child.path pathExtension] lowercaseString];
         if (!child.isDirectory && [validExtensions indexOfObject:extension] != NSNotFound) {
-            [newPhotoPaths addObject:child.path];
+            [self.photoPaths addObject:child.path];
         }
     }
-    self.photos = [NSMutableArray arrayWithCapacity:10];
-    imagesToLoad = [newPhotoPaths count];
-
-    for (NSString *path in newPhotoPaths) {
-        [self.dropboxClient loadThumbnail:path ofSize:@"l" intoPath:[self tempPhotoPath]];
+    
+    self.photoUrls = [NSMutableArray arrayWithCapacity:10];
+    imagesLoaded = 0;
+    
+    for (NSString *path in self.photoPaths) {
+        [self.dropboxClient loadStreamableURLForFile:path];
     }
 }
 
 
 - (void)restClient:(DBRestClient*)client metadataUnchangedAtPath:(NSString*)path {
     NSLog(@"Files unchanged");
-    if (self.delegate) {
-        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:NO];
-    }
+    [self.delegate allImageUrlsLoaded:self.photoUrls succeed:YES contentChanged:NO];
 }
 
 
 - (void)restClient:(DBRestClient*)client loadMetadataFailedWithError:(NSError*)error {
     NSLog(@"restClient:loadMetadataFailedWithError: %@", [error localizedDescription]);
-    if (self.delegate) {
-        [self.delegate allImagesLoaded:nil succeed:NO contentChanged:NO];
-    }
+    [self.delegate allImageUrlsLoaded:nil succeed:NO contentChanged:NO];
 }
 
 
 - (void)restClient:(DBRestClient*)client loadedThumbnail:(NSString*)destPath {
     UIImage *thumbnail = [UIImage imageWithContentsOfFile:destPath];
-    NSLog(@"thumbnail: %@", thumbnail);
-    [self.photos addObject:thumbnail];
-    if (self.delegate) {
-        [self.delegate newImageLoaded:thumbnail];
-    }
-    imagesToLoad --;
-    if (imagesToLoad == 0 && self.delegate) {
-        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:YES];
-    }
+    [self.delegate thumbnailLoaded:thumbnail];
 }
 
 
 - (void)restClient:(DBRestClient*)client loadThumbnailFailedWithError:(NSError*)error {
     NSLog(@"restClient:loadThumbnailFailedWithError: %@", [error localizedDescription]);
-    imagesToLoad --;
-    if (imagesToLoad == 0 && self.delegate) {
-        [self.delegate allImagesLoaded:self.photos succeed:YES contentChanged:YES];
-    }
 }
 
 

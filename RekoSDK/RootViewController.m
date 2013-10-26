@@ -11,6 +11,13 @@
 #import "StacheCamAppDelegate.h"
 #import "DropboxImageLoader.h"
 
+
+@interface RootViewController()
+
+@property (strong, nonatomic) NSArray* imageUrls;
+
+@end
+
 @implementation RootViewController
 
 
@@ -25,13 +32,18 @@
     if (![[DBSession sharedSession] isLinked]) {
 		[[DBSession sharedSession] linkFromController:self];
     } else {
-        [[DropboxImageLoader shareLoader] loadImagesFromDropbox:self];
+        [[DropboxImageLoader shareLoader] loadImageUrlsFromDropbox:self];
     }
 }
 
-- (void)allImagesLoaded:(NSArray *)images succeed:(BOOL)succeed contentChanged:(BOOL)change {
-    NSLog(@"here");
-    NSLog(@"%@", images);
+
+- (void)allImageUrlsLoaded:(NSArray *)imageUrls succeed:(BOOL)succeed contentChanged:(BOOL)change {
+    NSLog(@"all urls: %d", [imageUrls count]);
+    self.imageUrls = imageUrls;
+}
+
+- (void)thumbnailLoaded:(UIImage *)thumbnail {
+    NSLog(@"thumbnail: %@", thumbnail);
 }
 
 @end
