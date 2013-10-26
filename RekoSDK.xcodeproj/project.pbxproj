@@ -18,6 +18,10 @@
 		08D5E72B180691180019B6B4 /* StacheCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */; };
 		08D5E72F180692F50019B6B4 /* RekoSDK-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D5E72E180692F50019B6B4 /* RekoSDK-Info.plist */; };
 		08DA19E718091BE700764ABC /* ImageHadoop.mm in Sources */ = {isa = PBXBuildFile; fileRef = 08DA19E618091BE700764ABC /* ImageHadoop.mm */; };
+		08FCED38181C1FD10037D14B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FCED37181C1FD10037D14B /* DropboxSDK.framework */; };
+		08FCED3A181C20090037D14B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FCED39181C20090037D14B /* Security.framework */; };
+		08FCED3D181C26040037D14B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FCED3C181C26040037D14B /* RootViewController.m */; };
+		08FCED40181C38C40037D14B /* DropboxImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FCED3F181C38C40037D14B /* DropboxImageLoader.m */; };
 		1B3C9A27139D4E0F0042676B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A26139D4E0F0042676B /* CoreVideo.framework */; };
 		1B3C9A2A139D4E150042676B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A29139D4E150042676B /* AVFoundation.framework */; };
 		1B3C9A2C139D4E1C0042676B /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3C9A2B139D4E1C0042676B /* CoreImage.framework */; };
@@ -101,6 +105,12 @@
 		08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StacheCamAppDelegate.m; sourceTree = "<group>"; };
 		08D5E72E180692F50019B6B4 /* RekoSDK-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RekoSDK-Info.plist"; sourceTree = "<group>"; };
 		08DA19E618091BE700764ABC /* ImageHadoop.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageHadoop.mm; sourceTree = "<group>"; };
+		08FCED37181C1FD10037D14B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		08FCED39181C20090037D14B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		08FCED3B181C26040037D14B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		08FCED3C181C26040037D14B /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		08FCED3E181C38C40037D14B /* DropboxImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropboxImageLoader.h; sourceTree = "<group>"; };
+		08FCED3F181C38C40037D14B /* DropboxImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropboxImageLoader.m; sourceTree = "<group>"; };
 		1B3C9A26139D4E0F0042676B /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		1B3C9A29139D4E150042676B /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1B3C9A2B139D4E1C0042676B /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
@@ -265,6 +275,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3C9A32139D4E740042676B /* QuartzCore.framework in Frameworks */,
+				08FCED3A181C20090037D14B /* Security.framework in Frameworks */,
 				089DA0E617FA4887006A5745 /* CoreLocation.framework in Frameworks */,
 				4BF6070817ED6A4E0095520C /* MobileCoreServices.framework in Frameworks */,
 				4BF6070617ED69FC0095520C /* CFNetwork.framework in Frameworks */,
@@ -283,11 +295,11 @@
 				4B676CFA17DEFF2C008D06BB /* CoreTelephony.framework in Frameworks */,
 				4B676BB117DE8E8A008D06BB /* CoreText.framework in Frameworks */,
 				4B676BAF17DE8E7E008D06BB /* MessageUI.framework in Frameworks */,
+				08FCED38181C1FD10037D14B /* DropboxSDK.framework in Frameworks */,
 				4B676BAB17DE8E6C008D06BB /* OpenGLES.framework in Frameworks */,
 				A58A4BE717641AE1007C8DB8 /* Social.framework in Frameworks */,
 				A53029ED1759133700B69B73 /* SystemConfiguration.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
-				1B3C9A32139D4E740042676B /* QuartzCore.framework in Frameworks */,
 				1B3C9A30139D4E5F0042676B /* CoreMedia.framework in Frameworks */,
 				1B867FE1139D4AD300AD6B47 /* CoreGraphics.framework in Frameworks */,
 				1B3C9A2E139D4E350042676B /* AssetsLibrary.framework in Frameworks */,
@@ -353,6 +365,7 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				08FCED39181C20090037D14B /* Security.framework */,
 				4B676CF717DEFC6C008D06BB /* libiconv.dylib */,
 				4B676CF517DEFC4A008D06BB /* libsqlite3.dylib */,
 				4B676CF317DEFBD9008D06BB /* libstdc++.dylib */,
@@ -390,10 +403,15 @@
 		1B867FE2139D4AD300AD6B47 /* RekoSDK */ = {
 			isa = PBXGroup;
 			children = (
-				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
-				0815153D181BACDA00A01FCC /* DBChooser.framework */,
 				08D5E727180691180019B6B4 /* StacheCamAppDelegate.h */,
 				08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */,
+				08FCED3B181C26040037D14B /* RootViewController.h */,
+				08FCED3C181C26040037D14B /* RootViewController.m */,
+				08FCED3E181C38C40037D14B /* DropboxImageLoader.h */,
+				08FCED3F181C38C40037D14B /* DropboxImageLoader.m */,
+				08FCED37181C1FD10037D14B /* DropboxSDK.framework */,
+				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
+				0815153D181BACDA00A01FCC /* DBChooser.framework */,
 				0815152B181BA8A200A01FCC /* curl */,
 				A5719AD81694F17100DEB7EA /* opencv2 */,
 				A5719A9B1694F15D00DEB7EA /* gen-cocoa */,
@@ -750,6 +768,7 @@
 				08151539181BA8A200A01FCC /* RekognitionSDK.m in Sources */,
 				08151538181BA8A200A01FCC /* NSDictionary+HTTPBody.m in Sources */,
 				A5719AC71694F15D00DEB7EA /* OrbeusSTL.m in Sources */,
+				08FCED3D181C26040037D14B /* RootViewController.m in Sources */,
 				A5719AC81694F15D00DEB7EA /* PeterRequest.m in Sources */,
 				0815153A181BA8A200A01FCC /* UIImageResize+Rotate.m in Sources */,
 				A5719AC91694F15D00DEB7EA /* TBinaryProtocol.m in Sources */,
@@ -771,6 +790,7 @@
 				7873FAEA169B7A740088F6B7 /* FaceRecord.m in Sources */,
 				7873FAEB169B7A740088F6B7 /* ImageTrain.m in Sources */,
 				08151537181BA8A200A01FCC /* FaceThumbnailCropper.m in Sources */,
+				08FCED40181C38C40037D14B /* DropboxImageLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

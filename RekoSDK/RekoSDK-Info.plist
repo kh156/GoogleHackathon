@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+    <key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>db-wiri5m6stfn92ub</string>
+			</array>
+		</dict>
+	</array>
 	<key>Aviary-API-Key</key>
 	<string>b6g2xoic5dxuq64w</string>
 	<key>CFBundleDevelopmentRegion</key>
