@@ -18,6 +18,9 @@
 @property (strong, readonly) DBRestClient *dropboxClient;
 @property (strong, nonatomic) NSString *photosHash;
 @property (strong, nonatomic) NSMutableArray *photoPaths;
+@property (strong, nonatomic) NSMutableArray *photoUrls;
+@property (strong, nonatomic) NSMutableArray *photos;
+@property (strong, nonatomic) NSMutableArray *thumbnails;
 @end
 
 
@@ -37,12 +40,26 @@ static DropboxImageLoader *_sharedLoader = nil;
 - (void)loadImageUrlsFromDropbox:(id<DropboxImageLoaderDelegate>)delegate {
     self.delegate = delegate;
     NSString *dropboxPath = @"/_Orbeus_Family (1)/GoogleHackathon/";
+//    NSString *dropboxPath = @"/_Orbeus_Family (1)/Test Pics/";
     [self.dropboxClient loadMetadata:dropboxPath withHash:self.photosHash];
 }
 
 
-- (void)loadThumbnailForIndex:(NSInteger)index {
-    [self.dropboxClient loadThumbnail:[self.photoPaths objectAtIndex:index] ofSize:@"m" intoPath:[self tempPhotoPath]];
+- (void)loadImagesFromDropbox:(id<DropboxImageLoaderDelegate>)delegate {
+    self.delegate = delegate;
+    NSString *dropboxPath = @"/_Orbeus_Family (1)/GoogleHackathon/";
+    [self.dropboxClient loadMetadata:dropboxPath withHash:self.photosHash];
+}
+
+
+- (void)loadThumbnails {
+    if (self.photoPaths) {
+        self.thumbnails = [NSMutableArray arrayWithCapacity:10];
+        imagesLoaded = 0;
+        for (NSString *path in self.photoPaths) {
+            [self.dropboxClient loadThumbnail:path ofSize:@"m" intoPath:[self tempPhotoPath]];
+        }
+    }
 }
 
 
@@ -50,7 +67,7 @@ static DropboxImageLoader *_sharedLoader = nil;
 
 - (void)restClient:(DBRestClient*)restClient loadedStreamableURL:(NSURL*)url forFile:(NSString*)path {
     [self.photoUrls addObject:url];
-    [self.delegate newImageUrlLoaded:url index:imagesLoaded];
+//    [self.delegate newImageUrlLoaded:url index:imagesLoaded];
     imagesLoaded ++;
     if (imagesLoaded == [self.photoPaths count]) {
         [self.delegate allImageUrlsLoaded:self.photoUrls succeed:YES contentChanged:YES];
@@ -81,10 +98,12 @@ static DropboxImageLoader *_sharedLoader = nil;
     }
     
     self.photoUrls = [NSMutableArray arrayWithCapacity:10];
+    self.photos = [NSMutableArray arrayWithCapacity:10];
     imagesLoaded = 0;
     
     for (NSString *path in self.photoPaths) {
-        [self.dropboxClient loadStreamableURLForFile:path];
+//        [self.dropboxClient loadStreamableURLForFile:path];
+        [self.dropboxClient loadThumbnail:path ofSize:@"l" intoPath:[self tempPhotoPath]];
     }
 }
 
@@ -103,12 +122,20 @@ static DropboxImageLoader *_sharedLoader = nil;
 
 - (void)restClient:(DBRestClient*)client loadedThumbnail:(NSString*)destPath {
     UIImage *thumbnail = [UIImage imageWithContentsOfFile:destPath];
-    [self.delegate thumbnailLoaded:thumbnail];
+    [self.thumbnails addObject:thumbnail];
+    imagesLoaded ++;
+    if (imagesLoaded == [self.photoUrls count]) {
+        [self.delegate thumbnailsLoaded:self.thumbnails];
+    }
 }
 
 
 - (void)restClient:(DBRestClient*)client loadThumbnailFailedWithError:(NSError*)error {
     NSLog(@"restClient:loadThumbnailFailedWithError: %@", [error localizedDescription]);
+    imagesLoaded ++;
+    if (imagesLoaded == [self.photoUrls count]) {
+        [self.delegate thumbnailsLoaded:self.thumbnails];
+    }
 }
 
 
