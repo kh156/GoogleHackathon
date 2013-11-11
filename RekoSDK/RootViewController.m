@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-#import <DropboxSDK/DropboxSDK.h>
+#import <DropboxSDK.h>
 #import "StacheCamAppDelegate.h"
 #import "DropboxImageLoader.h"
 
