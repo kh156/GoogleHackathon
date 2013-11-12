@@ -17,7 +17,6 @@
 		08D5E72B180691180019B6B4 /* StacheCamAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */; };
 		08D5E72F180692F50019B6B4 /* RekoSDK-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08D5E72E180692F50019B6B4 /* RekoSDK-Info.plist */; };
 		08DED434181C652700BC6413 /* RekoPipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 08DED433181C652700BC6413 /* RekoPipe.m */; };
-		08FCED38181C1FD10037D14B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FCED37181C1FD10037D14B /* DropboxSDK.framework */; };
 		08FCED3A181C20090037D14B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08FCED39181C20090037D14B /* Security.framework */; };
 		08FCED3D181C26040037D14B /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FCED3C181C26040037D14B /* RootViewController.m */; };
 		08FCED40181C38C40037D14B /* DropboxImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FCED3F181C38C40037D14B /* DropboxImageLoader.m */; };
@@ -46,6 +45,7 @@
 		4B676CF617DEFC4A008D06BB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B676CF517DEFC4A008D06BB /* libsqlite3.dylib */; };
 		4B676CF817DEFC6D008D06BB /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B676CF717DEFC6C008D06BB /* libiconv.dylib */; };
 		4B676CFA17DEFF2C008D06BB /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B676CF917DEFF2B008D06BB /* CoreTelephony.framework */; };
+		4B912C99183183CD00BCB85B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B912C98183183CD00BCB85B /* DropboxSDK.framework */; };
 		4BF6070617ED69FC0095520C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF6070517ED69FC0095520C /* CFNetwork.framework */; };
 		4BF6070817ED6A4E0095520C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF6070717ED6A4E0095520C /* MobileCoreServices.framework */; };
 		A53029ED1759133700B69B73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53029EC1759133700B69B73 /* SystemConfiguration.framework */; };
@@ -71,7 +71,6 @@
 		08D5E72E180692F50019B6B4 /* RekoSDK-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "RekoSDK-Info.plist"; sourceTree = "<group>"; };
 		08DED432181C652700BC6413 /* RekoPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RekoPipe.h; sourceTree = "<group>"; };
 		08DED433181C652700BC6413 /* RekoPipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RekoPipe.m; sourceTree = "<group>"; };
-		08FCED37181C1FD10037D14B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		08FCED39181C20090037D14B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		08FCED3B181C26040037D14B /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		08FCED3C181C26040037D14B /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		4B676CF517DEFC4A008D06BB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4B676CF717DEFC6C008D06BB /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
 		4B676CF917DEFF2B008D06BB /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		4B912C98183183CD00BCB85B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DropboxSDK.framework; path = RekoSDK/DropboxSDK.framework; sourceTree = "<group>"; };
 		4BF6070517ED69FC0095520C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		4BF6070717ED6A4E0095520C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A53029EC1759133700B69B73 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -137,11 +137,11 @@
 				4B676CFA17DEFF2C008D06BB /* CoreTelephony.framework in Frameworks */,
 				4B676BB117DE8E8A008D06BB /* CoreText.framework in Frameworks */,
 				4B676BAF17DE8E7E008D06BB /* MessageUI.framework in Frameworks */,
-				08FCED38181C1FD10037D14B /* DropboxSDK.framework in Frameworks */,
 				4B676BAB17DE8E6C008D06BB /* OpenGLES.framework in Frameworks */,
 				A58A4BE717641AE1007C8DB8 /* Social.framework in Frameworks */,
 				A53029ED1759133700B69B73 /* SystemConfiguration.framework in Frameworks */,
 				1B3C9A34139D4EAA0042676B /* ImageIO.framework in Frameworks */,
+				4B912C99183183CD00BCB85B /* DropboxSDK.framework in Frameworks */,
 				1B3C9A30139D4E5F0042676B /* CoreMedia.framework in Frameworks */,
 				1B867FE1139D4AD300AD6B47 /* CoreGraphics.framework in Frameworks */,
 				1B3C9A2E139D4E350042676B /* AssetsLibrary.framework in Frameworks */,
@@ -174,6 +174,7 @@
 		1B867FCD139D4AD300AD6B47 = {
 			isa = PBXGroup;
 			children = (
+				4B912C98183183CD00BCB85B /* DropboxSDK.framework */,
 				089B241518317140000BA6F8 /* SDK */,
 				1B867FE2139D4AD300AD6B47 /* RekoSDK */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
@@ -238,7 +239,6 @@
 				08FCED3F181C38C40037D14B /* DropboxImageLoader.m */,
 				08DED432181C652700BC6413 /* RekoPipe.h */,
 				08DED433181C652700BC6413 /* RekoPipe.m */,
-				08FCED37181C1FD10037D14B /* DropboxSDK.framework */,
 				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
 				0815153D181BACDA00A01FCC /* DBChooser.framework */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
@@ -412,6 +412,7 @@
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK/gen-cocoa",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK",
 					/Users/kuanghan/Desktop/GoogleHackathon/RekoSDK,
+					/Users/yushan/Dropbox/_Orbeus_Products/iOS/_Rekognition_iOS_SDK/Google_Hackathon_Git/GoogleHackathon/RekoSDK,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -449,6 +450,7 @@
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK/gen-cocoa",
 					"/Users/kuanghan/Desktop/Swift\\ SDK/RekoSDK",
 					/Users/kuanghan/Desktop/GoogleHackathon/RekoSDK,
+					/Users/yushan/Dropbox/_Orbeus_Products/iOS/_Rekognition_iOS_SDK/Google_Hackathon_Git/GoogleHackathon/RekoSDK,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
