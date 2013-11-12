@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0807FA051831DF8800FD6F3E /* FaceThumbnailCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0807F9FE1831DF8800FD6F3E /* FaceThumbnailCropper.m */; };
+		0807FA061831DF8800FD6F3E /* ReKognitionResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 0807FA001831DF8800FD6F3E /* ReKognitionResults.m */; };
+		0807FA071831DF8800FD6F3E /* RekognitionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 0807FA021831DF8800FD6F3E /* RekognitionSDK.m */; };
+		0807FA081831DF8800FD6F3E /* UIImageRotationFixer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0807FA041831DF8800FD6F3E /* UIImageRotationFixer.m */; };
+		0807FA0B1831E01400FD6F3E /* RekoPipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 0807FA0A1831E01400FD6F3E /* RekoPipe.m */; };
+		0807FA0D1831E26E00FD6F3E /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0807FA0C1831E26E00FD6F3E /* CoreImage.framework */; };
+		0807FA0F1831E28500FD6F3E /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0807FA0E1831E28500FD6F3E /* AssetsLibrary.framework */; };
+		0807FA111831E2B100FD6F3E /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0807FA101831E2B100FD6F3E /* ImageIO.framework */; };
 		389A5BED121995A200B87185 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 389A5BEC121995A200B87185 /* QuartzCore.framework */; };
 		38AE3FAE121986F700E7D3B5 /* ExpandFromGridViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AE3FAD121986F700E7D3B5 /* ExpandFromGridViewCell.m */; };
 		38AE3FB112198A9D00E7D3B5 /* ExpandingGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 38AE3FB012198A9D00E7D3B5 /* ExpandingGridViewController.m */; };
@@ -61,6 +69,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0807F9FD1831DF8800FD6F3E /* FaceThumbnailCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceThumbnailCropper.h; sourceTree = "<group>"; };
+		0807F9FE1831DF8800FD6F3E /* FaceThumbnailCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceThumbnailCropper.m; sourceTree = "<group>"; };
+		0807F9FF1831DF8800FD6F3E /* ReKognitionResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReKognitionResults.h; sourceTree = "<group>"; };
+		0807FA001831DF8800FD6F3E /* ReKognitionResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReKognitionResults.m; sourceTree = "<group>"; };
+		0807FA011831DF8800FD6F3E /* ReKognitionSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReKognitionSDK.h; sourceTree = "<group>"; };
+		0807FA021831DF8800FD6F3E /* RekognitionSDK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RekognitionSDK.m; sourceTree = "<group>"; };
+		0807FA031831DF8800FD6F3E /* UIImageRotationFixer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageRotationFixer.h; sourceTree = "<group>"; };
+		0807FA041831DF8800FD6F3E /* UIImageRotationFixer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageRotationFixer.m; sourceTree = "<group>"; };
+		0807FA091831E01400FD6F3E /* RekoPipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RekoPipe.h; sourceTree = "<group>"; };
+		0807FA0A1831E01400FD6F3E /* RekoPipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RekoPipe.m; sourceTree = "<group>"; };
+		0807FA0C1831E26E00FD6F3E /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		0807FA0E1831E28500FD6F3E /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		0807FA101831E2B100FD6F3E /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		389A5BEC121995A200B87185 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		38AE3FAC121986F700E7D3B5 /* ExpandFromGridViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandFromGridViewCell.h; sourceTree = "<group>"; };
 		38AE3FAD121986F700E7D3B5 /* ExpandFromGridViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandFromGridViewCell.m; sourceTree = "<group>"; };
@@ -140,6 +161,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0807FA111831E2B100FD6F3E /* ImageIO.framework in Frameworks */,
+				0807FA0F1831E28500FD6F3E /* AssetsLibrary.framework in Frameworks */,
+				0807FA0D1831E26E00FD6F3E /* CoreImage.framework in Frameworks */,
 				38D6F06D12197E62006909B6 /* UIKit.framework in Frameworks */,
 				38D6F06F12197E62006909B6 /* Foundation.framework in Frameworks */,
 				38D6F07112197E62006909B6 /* CoreGraphics.framework in Frameworks */,
@@ -150,6 +174,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0807F9FC1831DF8800FD6F3E /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				0807F9FD1831DF8800FD6F3E /* FaceThumbnailCropper.h */,
+				0807F9FE1831DF8800FD6F3E /* FaceThumbnailCropper.m */,
+				0807F9FF1831DF8800FD6F3E /* ReKognitionResults.h */,
+				0807FA001831DF8800FD6F3E /* ReKognitionResults.m */,
+				0807FA011831DF8800FD6F3E /* ReKognitionSDK.h */,
+				0807FA021831DF8800FD6F3E /* RekognitionSDK.m */,
+				0807FA031831DF8800FD6F3E /* UIImageRotationFixer.h */,
+				0807FA041831DF8800FD6F3E /* UIImageRotationFixer.m */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
 		389A5BC912198FFA00B87185 /* GridView */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +215,9 @@
 		38D6F06112197E62006909B6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0807FA091831E01400FD6F3E /* RekoPipe.h */,
+				0807FA0A1831E01400FD6F3E /* RekoPipe.m */,
+				0807F9FC1831DF8800FD6F3E /* SDK */,
 				38D6F07912197E62006909B6 /* ExpanderDemoAppDelegate.h */,
 				38D6F07A12197E62006909B6 /* ExpanderDemoAppDelegate.m */,
 				38D6F07F12197E62006909B6 /* ExpanderDemoViewController.h */,
@@ -215,6 +257,9 @@
 		38D6F06412197E62006909B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0807FA101831E2B100FD6F3E /* ImageIO.framework */,
+				0807FA0E1831E28500FD6F3E /* AssetsLibrary.framework */,
+				0807FA0C1831E26E00FD6F3E /* CoreImage.framework */,
 				38D6F06C12197E62006909B6 /* UIKit.framework */,
 				38D6F06E12197E62006909B6 /* Foundation.framework */,
 				38D6F07012197E62006909B6 /* CoreGraphics.framework */,
@@ -386,19 +431,24 @@
 			files = (
 				38D6F07812197E62006909B6 /* main.m in Sources */,
 				38D6F07B12197E62006909B6 /* ExpanderDemoAppDelegate.m in Sources */,
+				0807FA0B1831E01400FD6F3E /* RekoPipe.m in Sources */,
 				4BFAC1181831919F00D2D420 /* AQGridViewData.m in Sources */,
 				4BFAC1191831919F00D2D420 /* AQGridViewUpdateInfo.m in Sources */,
 				38D6F08112197E62006909B6 /* ExpanderDemoViewController.m in Sources */,
 				4BFAC1141831919F00D2D420 /* AQGridView.m in Sources */,
+				0807FA061831DF8800FD6F3E /* ReKognitionResults.m in Sources */,
 				4BFAC1171831919F00D2D420 /* AQGridViewController.m in Sources */,
 				4BFAC1161831919F00D2D420 /* AQGridViewCell.m in Sources */,
 				4BFAC11B1831919F00D2D420 /* NSIndexSet+AQIndexesOutsideSet.m in Sources */,
 				38D6F13C12198326006909B6 /* ImageGridViewCell.m in Sources */,
 				4BFAC11D1831919F00D2D420 /* UIColor+AQGridView.m in Sources */,
+				0807FA081831DF8800FD6F3E /* UIImageRotationFixer.m in Sources */,
 				38AE3FAE121986F700E7D3B5 /* ExpandFromGridViewCell.m in Sources */,
 				4BFAC11A1831919F00D2D420 /* AQGridViewUpdateItem.m in Sources */,
 				4BFAC11C1831919F00D2D420 /* NSIndexSet+AQIsSetContiguous.m in Sources */,
 				4BFAC1151831919F00D2D420 /* AQGridViewAnimatorItem.m in Sources */,
+				0807FA051831DF8800FD6F3E /* FaceThumbnailCropper.m in Sources */,
+				0807FA071831DF8800FD6F3E /* RekognitionSDK.m in Sources */,
 				38AE3FB112198A9D00E7D3B5 /* ExpandingGridViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

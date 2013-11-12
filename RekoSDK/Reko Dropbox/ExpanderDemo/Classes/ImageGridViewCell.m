@@ -99,6 +99,8 @@
     if ( (imageSize.width <= bounds.size.width) &&
 		(imageSize.height <= bounds.size.height) )
     {
+        _imageLabel.frame = CGRectMake(frame.origin.x, frame.origin.y + frame.size.height, frame.size.width, 40);
+        _imageLabel.textAlignment = NSTextAlignmentCenter;
         return;
     }
     
@@ -116,6 +118,7 @@
     _imageLabel.frame = CGRectMake(frame.origin.x, frame.origin.y + frame.size.height, frame.size.width, 40);
     _imageLabel.textAlignment = NSTextAlignmentCenter;
     
+
 }
 
 @end

@@ -40,10 +40,70 @@
 #import "AQGridView.h"
 #import "ExpandFromGridViewCell.h"
 #import "ExpandingGridViewController.h"
+#import "RekoPipe.h"
+
+@interface ExpanderDemoViewController()
+@property (strong, nonatomic) NSMutableArray *googleSampleImages;
+@property (strong, nonatomic) NSMutableArray *googleSampleImageThumbnails;
+@property (strong, nonatomic) NSDictionary *indexDict;
+@end
 
 @implementation ExpanderDemoViewController
 @synthesize imageCategories = _imageCategories;
 @synthesize imageArray = _imageArray;
+
+- (void)viewDidLoad {
+    [self fetchdata];
+    self.imageCategories = self.indexDict;
+    self.imageArray = self.googleSampleImages;
+    [super viewDidLoad];
+}
+
+
+- (void)fetchdata {
+    self.googleSampleImages = [NSMutableArray arrayWithCapacity:10];
+    self.googleSampleImageThumbnails = [NSMutableArray arrayWithCapacity:10];
+    
+    NSString *str_flower=@"https://picasaweb.google.com/data/feed/api/all?q=flower%20pictures&max-results=5";
+    NSString *str_beach=@"https://picasaweb.google.com/data/feed/api/all?q=beach%20pictures&max-results=5";
+    NSString *str_food=@"https://picasaweb.google.com/data/feed/api/all?q=food%20pictures&max-results=5";
+    NSString *str_mountain=@"https://picasaweb.google.com/data/feed/api/all?q=mountain%20pictures&max-results=5";
+    NSString *str_smile = @"https://picasaweb.google.com/data/feed/api/all?q=smile%20pictures&max-results=5";
+    NSString *str_men = @"https://picasaweb.google.com/data/feed/api/all?q=gentleman%20pictures&max-results=5";
+    NSString *str_women = @"https://picasaweb.google.com/data/feed/api/all?q=lady%20pictures&max-results=5";
+    NSString *str_people = @"https://picasaweb.google.com/data/feed/api/all?q=lady%20pictures&max-results=20";
+    NSArray * str_array = [[NSArray alloc] initWithObjects:str_women, nil];
+    
+    for (NSString * str in str_array) {
+        
+        NSURL *url=[NSURL URLWithString:str];
+        
+        NSData *data=[NSData dataWithContentsOfURL:url];
+        
+        NSString * responseStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        NSMutableArray *components = [[responseStr componentsSeparatedByString:@"<media:content"] mutableCopy];
+        
+        [components removeObjectAtIndex:0];
+        
+        NSArray * array = components;
+        
+        for (NSString * str in array) {
+            NSArray *tempArray = [str componentsSeparatedByString:@"url='"];
+            NSString *imageString = tempArray[1];
+            NSString *thumbnailString = tempArray[3];
+            imageString = [imageString componentsSeparatedByString:@"'"][0];
+            thumbnailString = [thumbnailString componentsSeparatedByString:@"'"][0];
+            [self.googleSampleImages addObject:imageString];
+            [self.googleSampleImageThumbnails addObject:thumbnailString];
+        }
+    }
+    
+    RekoPipe *reko = [[RekoPipe alloc] init];
+    self.indexDict = [reko processImages:self.googleSampleImages];
+    NSLog(@"%@", self.indexDict);
+}
+
 
 // Ensure that the view controller supports rotation and that the split view can therefore show in both portrait and landscape.
 - (BOOL) shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation) interfaceOrientation
@@ -56,7 +116,8 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) gridView
 {
-	return [self.imageCategories count];
+    NSLog(@"count = %d", [[self.imageCategories allKeys] count]);
+	return [[self.imageCategories allKeys] count];
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) gridView cellForItemAtIndex: (NSUInteger) index
@@ -71,16 +132,29 @@
 	}
     
     NSString * str = [[self.imageCategories allKeys] objectAtIndex:index];
-	
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    dispatch_async(queue, ^{
-        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString: [[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            cell.image = [UIImage imageWithData:imageData];
-            cell.contentMode = UIViewContentModeScaleToFill;
-        });
-    });
     
+    NSLog(@"str = %@", str);
+	
+    NSString *s = self.imageArray[[[[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0] integerValue]];
+    NSLog(@"url = %@", [s class]);
+    NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:s]];
+    cell.image = [UIImage imageWithData:imageData];
+    cell.contentMode = UIViewContentModeScaleToFill;
+
+
+//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+//    dispatch_async(queue, ^{
+//        NSString *s = self.imageArray[[[[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0] integerValue]];
+////        NSString *s = @"http://orbe.us/style/img/bg.jpg";
+//        NSLog(@"url = %@", [s class]);
+//        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:s]];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            cell.image = [UIImage imageWithData:imageData];
+//            //cell.contentMode = UIViewContentModeScaleToFill;
+//        });
+//    });
+    
+//    cell.image = [UIImage imageNamed:@"3D-simplicity.png"];
     cell.title = str;
 	return ( cell );
 }
