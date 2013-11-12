@@ -32,7 +32,7 @@ static NSString *apiSecret = @"biHMoMnjQIUD3OQj";
             } else {
                 [self setTagValue:dict tag:@"Women" index:i];
             }
-            if (person.smile > 0.4) {
+            if (person.smile > 0.1) {
                 [self setTagValue:dict tag:@"Smile" index:i];
             }
             if (person.age < 10) {
@@ -46,7 +46,7 @@ static NSString *apiSecret = @"biHMoMnjQIUD3OQj";
         
         for (int j = 0; j < [scene.matched_scenes count]; j++) {
             float score = [scene.matched_scene_scores[j] floatValue];
-            if (score > 0.3) {
+            if (score > 0.1) {
                 NSString *sceneTag = scene.matched_scenes[j];
                 [self setTagValue:dict tag:sceneTag index:i];
             }

@@ -70,7 +70,7 @@
     
     RekoPipe *reko = [[RekoPipe alloc] init];
     self.indexDict = [reko processImages:self.googleSampleImages];
-    NSLog(@"%@", self.indexDict);
+    NSLog(@"self.indexDict = %@", self.indexDict);
 }
 
 

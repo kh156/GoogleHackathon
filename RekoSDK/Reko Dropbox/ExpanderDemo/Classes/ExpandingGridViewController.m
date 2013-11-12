@@ -164,7 +164,7 @@
 
 - (NSUInteger) numberOfItemsInGridView: (AQGridView *) aGridView
 {
-    return ( [_imageNames count] );
+    return ( [self.imageArray count] );
 }
 
 - (AQGridViewCell *) gridView: (AQGridView *) aGridView cellForItemAtIndex: (NSUInteger) index
@@ -178,21 +178,20 @@
 		cell.selectionGlowColor = [UIColor purpleColor];
 	}
 	
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    dispatch_async(queue, ^{
+    //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    //dispatch_async(queue, ^{
         NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString: [self.imageArray objectAtIndex:index]]];
-        dispatch_async(dispatch_get_main_queue(), ^{
+    //    dispatch_async(dispatch_get_main_queue(), ^{
             cell.image = [UIImage imageWithData:imageData];
-            cell.contentMode = UIViewContentModeScaleToFill;
-        });
-    });
+    //    });
+    //});
     
     return ( cell );
 }
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) aGridView
 {
-    return ( CGSizeMake(300, 300) );
+    return ( CGSizeMake(250, 250) );
 }
 
 - (void) dismissFromSuperView{

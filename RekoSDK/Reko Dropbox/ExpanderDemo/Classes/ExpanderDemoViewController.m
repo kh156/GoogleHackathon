@@ -64,15 +64,15 @@
     self.googleSampleImages = [NSMutableArray arrayWithCapacity:10];
     self.googleSampleImageThumbnails = [NSMutableArray arrayWithCapacity:10];
     
-    NSString *str_flower=@"https://picasaweb.google.com/data/feed/api/all?q=flower%20pictures&max-results=5";
-    NSString *str_beach=@"https://picasaweb.google.com/data/feed/api/all?q=beach%20pictures&max-results=5";
-    NSString *str_food=@"https://picasaweb.google.com/data/feed/api/all?q=food%20pictures&max-results=5";
-    NSString *str_mountain=@"https://picasaweb.google.com/data/feed/api/all?q=mountain%20pictures&max-results=5";
-    NSString *str_smile = @"https://picasaweb.google.com/data/feed/api/all?q=smile%20pictures&max-results=5";
-    NSString *str_men = @"https://picasaweb.google.com/data/feed/api/all?q=gentleman%20pictures&max-results=5";
-    NSString *str_women = @"https://picasaweb.google.com/data/feed/api/all?q=lady%20pictures&max-results=5";
+    NSString *str_flower=@"https://picasaweb.google.com/data/feed/api/all?q=flower%20pictures&max-results=10";
+    NSString *str_beach=@"https://picasaweb.google.com/data/feed/api/all?q=beach%20pictures&max-results=10";
+    NSString *str_food=@"https://picasaweb.google.com/data/feed/api/all?q=food%20pictures&max-results=10";
+    NSString *str_mountain=@"https://picasaweb.google.com/data/feed/api/all?q=mountain%20pictures&max-results=10";
+    NSString *str_smile = @"https://picasaweb.google.com/data/feed/api/all?q=smile%20pictures&max-results=10";
+    NSString *str_men = @"https://picasaweb.google.com/data/feed/api/all?q=gentleman%20pictures&max-results=10";
+    NSString *str_women = @"https://picasaweb.google.com/data/feed/api/all?q=lady%20pictures&max-results=10";
     NSString *str_people = @"https://picasaweb.google.com/data/feed/api/all?q=lady%20pictures&max-results=20";
-    NSArray * str_array = [[NSArray alloc] initWithObjects:str_women, nil];
+    NSArray * str_array = [[NSArray alloc] initWithObjects:str_women,str_flower,str_beach,str_food,str_mountain,str_smile,str_men,str_women,str_people, nil];
     
     for (NSString * str in str_array) {
         
@@ -135,33 +135,24 @@
     
     NSLog(@"str = %@", str);
 	
-    NSString *s = self.imageArray[[[[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0] integerValue]];
-    NSLog(@"url = %@", [s class]);
-    NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:s]];
-    cell.image = [UIImage imageWithData:imageData];
-    cell.contentMode = UIViewContentModeScaleToFill;
 
-
-//    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-//    dispatch_async(queue, ^{
-//        NSString *s = self.imageArray[[[[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0] integerValue]];
-////        NSString *s = @"http://orbe.us/style/img/bg.jpg";
-//        NSLog(@"url = %@", [s class]);
-//        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:s]];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            cell.image = [UIImage imageWithData:imageData];
-//            //cell.contentMode = UIViewContentModeScaleToFill;
-//        });
-//    });
+    //dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    //dispatch_async(queue, ^{
+        NSString *s = self.imageArray[[[[[self.imageCategories allValues] objectAtIndex:index] objectAtIndex:0] integerValue]];
+        NSLog(@"url = %@", [s class]);
+        NSData * imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:s]];
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+            cell.image = [UIImage imageWithData:imageData];
+    //    });
+    //});
     
-//    cell.image = [UIImage imageNamed:@"3D-simplicity.png"];
     cell.title = str;
 	return ( cell );
 }
 
 - (CGSize) portraitGridCellSizeForGridView: (AQGridView *) gridView
 {
-	return ( CGSizeMake(300.0, 300.0) );
+	return ( CGSizeMake(250.0, 250.0) );
 }
 
 #pragma mark -
@@ -175,8 +166,9 @@
 	ExpandingGridViewController * controller = [[ExpandingGridViewController alloc] init];
     
     NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
-    for (NSNumber * index in [[self.imageCategories allValues] objectAtIndex:index]){
-        [indexSet addIndex:index];
+
+    for (NSNumber * imageIndex in [[self.imageCategories allValues] objectAtIndex:index]){
+        [indexSet addIndex:[imageIndex unsignedIntValue]];
     }
     
     controller.imageArray = [self.imageArray objectsAtIndexes:indexSet];

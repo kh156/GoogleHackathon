@@ -20,7 +20,6 @@ static NSString *apiSecret = @"biHMoMnjQIUD3OQj";
     for (int i = 0; i < [urls count]; i++) {
         NSString *imageStr = [urls objectAtIndex:i];
         
-//        NSLog(@"url = %@", imageStr);
         ReKognitionSDK *sdk = [[ReKognitionSDK alloc] initWithAPIKey:apiKey APISecret:apiSecret];
         RKSceneUnderstandingResults *scene = [sdk RKSceneUnderstandingWithUrl:[NSURL URLWithString:imageStr]];
         RKFaceDetectResults *face = [sdk RKFaceDetectWithUrl:[NSURL URLWithString:imageStr] jobs:FaceDetectEmotion|FaceDetectSmile|FaceDetectRace|FaceDetectGender|FaceDetectAge];
@@ -52,7 +51,6 @@ static NSString *apiSecret = @"biHMoMnjQIUD3OQj";
             }
         }
     }
-    NSLog(@"%@", dict);
     return dict;
 }
 

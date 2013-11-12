@@ -93,6 +93,7 @@
     [super layoutSubviews];
     
     CGSize imageSize = _imageView.image.size;
+    NSLog(@"%f, %f", self.contentView.bounds.size.width, self.contentView.bounds.size.height);
     CGRect frame = _imageView.frame;
     CGRect bounds = self.contentView.bounds;
     
@@ -107,13 +108,15 @@
     // scale it down to fit
     CGFloat hRatio = bounds.size.width / imageSize.width;
     CGFloat vRatio = bounds.size.height / imageSize.height;
-    CGFloat ratio = MAX(hRatio, vRatio);
+    CGFloat ratio = MIN(hRatio, vRatio);
     
     frame.size.width = floorf(imageSize.width * ratio);
     frame.size.height = floorf(imageSize.height * ratio);
     frame.origin.x = floorf((bounds.size.width - frame.size.width) * 0.5);
     frame.origin.y = floorf((bounds.size.height - frame.size.height) * 0.5);
     _imageView.frame = frame;
+    
+    NSLog(@"%f, %f", frame.size.width, frame.size.height);
     
     _imageLabel.frame = CGRectMake(frame.origin.x, frame.origin.y + frame.size.height, frame.size.width, 40);
     _imageLabel.textAlignment = NSTextAlignmentCenter;
