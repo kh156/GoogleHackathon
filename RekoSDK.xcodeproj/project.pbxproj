@@ -55,8 +55,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0815153C181BACDA00A01FCC /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBChooser.bundle; sourceTree = "<group>"; };
-		0815153D181BACDA00A01FCC /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DBChooser.framework; sourceTree = "<group>"; };
+		0815153C181BACDA00A01FCC /* DBChooser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = DBChooser.bundle; path = RekoSDK/DBChooser.bundle; sourceTree = "<group>"; };
+		0815153D181BACDA00A01FCC /* DBChooser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DBChooser.framework; path = RekoSDK/DBChooser.framework; sourceTree = "<group>"; };
 		089B241618317140000BA6F8 /* FaceThumbnailCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceThumbnailCropper.h; sourceTree = "<group>"; };
 		089B241718317140000BA6F8 /* FaceThumbnailCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceThumbnailCropper.m; sourceTree = "<group>"; };
 		089B241818317140000BA6F8 /* ReKognitionResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReKognitionResults.h; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 			children = (
 				4B912C98183183CD00BCB85B /* DropboxSDK.framework */,
 				089B241518317140000BA6F8 /* SDK */,
-				1B867FE2139D4AD300AD6B47 /* RekoSDK */,
+				1B867FE2139D4AD300AD6B47 /* Controllers */,
 				1B867FDB139D4AD300AD6B47 /* Frameworks */,
 				1B867FD9139D4AD300AD6B47 /* Products */,
 			);
@@ -193,6 +193,8 @@
 		1B867FDB139D4AD300AD6B47 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
+				0815153D181BACDA00A01FCC /* DBChooser.framework */,
 				08FCED39181C20090037D14B /* Security.framework */,
 				4B676CF717DEFC6C008D06BB /* libiconv.dylib */,
 				4B676CF517DEFC4A008D06BB /* libsqlite3.dylib */,
@@ -228,21 +230,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1B867FE2139D4AD300AD6B47 /* RekoSDK */ = {
+		1B867FE2139D4AD300AD6B47 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				08D5E727180691180019B6B4 /* StacheCamAppDelegate.h */,
 				08D5E728180691180019B6B4 /* StacheCamAppDelegate.m */,
 				08FCED3B181C26040037D14B /* RootViewController.h */,
 				08FCED3C181C26040037D14B /* RootViewController.m */,
-				08FCED3E181C38C40037D14B /* DropboxImageLoader.h */,
-				08FCED3F181C38C40037D14B /* DropboxImageLoader.m */,
-				08DED432181C652700BC6413 /* RekoPipe.h */,
-				08DED433181C652700BC6413 /* RekoPipe.m */,
-				0815153C181BACDA00A01FCC /* DBChooser.bundle */,
-				0815153D181BACDA00A01FCC /* DBChooser.framework */,
+				4BFAC1B91831E0B700D2D420 /* DBModels */,
 				1B867FE3139D4AD300AD6B47 /* Supporting Files */,
 			);
+			name = Controllers;
 			path = RekoSDK;
 			sourceTree = "<group>";
 		};
@@ -255,6 +253,17 @@
 				1B867FEA139D4AD300AD6B47 /* RekoSDK-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BFAC1B91831E0B700D2D420 /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				08FCED3E181C38C40037D14B /* DropboxImageLoader.h */,
+				08FCED3F181C38C40037D14B /* DropboxImageLoader.m */,
+				08DED432181C652700BC6413 /* RekoPipe.h */,
+				08DED433181C652700BC6413 /* RekoPipe.m */,
+			);
+			name = DBModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
