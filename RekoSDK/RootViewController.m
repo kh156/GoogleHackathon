@@ -63,6 +63,7 @@
             NSString *thumbnailString = tempArray[3];
             imageString = [imageString componentsSeparatedByString:@"'"][0];
             thumbnailString = [thumbnailString componentsSeparatedByString:@"'"][0];
+            NSLog(@"loading imageString = %@", imageString);
             [self.googleSampleImages addObject:imageString];
             [self.googleSampleImageThumbnails addObject:thumbnailString];
         }
